@@ -5,7 +5,7 @@ This project is a professional website featuring an Online Resume Builder, devel
 ## Project Members
 - Aayush Shresta
 - Arjun Bhatta
-- Manjik Khanal
+- Manjil Khanal
 - Narayan Adhikari
 
 ## Overview
