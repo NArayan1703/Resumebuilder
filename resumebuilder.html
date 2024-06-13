@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff; /* Light eggshell blue */
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+        .form-container, .resume-container {
+            background-color: #ffffff; /* White for the containers */
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            flex: 1 1 300px;
+            max-width: 600px;
+        }
+        .form-container h2, .resume h1, .resume h2, .resume h3 {
+            color: #333;
+        }
+        .form-container label {
+            display: block;
+            margin-top: 10px;
+            color: #333;
+        }
+        .form-container input, .form-container textarea, .form-container button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .form-container button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+        .resume {
+            padding: 20px;
+            background-color: white;
+            color: black;
+            width: 210mm; /* A4 width */
+            min-height: 297mm; /* A4 height */
+            margin: auto;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            padding: 20mm;
+        }
+        .resume img.photo {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 20px;
+        }
+        .contact-info, .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            background-color: #e0f7fa;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 10px;
+        }
+        #downloadButton {
+            display: block;
+            margin: 20px auto;
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        #downloadButton:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .form-container, .resume-container {
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="form-container">
+        <h2>Enter Your Details</h2>
+        <form id="resumeForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name"><br><br>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+
+            <label for="phone">Phone:</label>
+            <input type="text" id="phone" name="phone"><br><br>
+
+            <label for="photo">Photo:</label>
+            <input type="file" id="photo" name="photo" accept="image/*" onchange="previewPhoto()"><br><br>
+
+            <label for="summary">Summary:</label><br>
+            <textarea id="summary" name="summary" rows="4" cols="50"></textarea><br><br>
+
+            <h3>Degrees</h3>
+            <div id="degrees">
+                <div>
+                    <label for="degree1">Degree:</label>
+                    <input type="text" id="degree1" name="degree1">
+                    <label for="institution1">Institution:</label>
+                    <input type="text" id="institution1" name="institution1">
+                    <label for="year1">Year:</label>
+                    <input type="text" id="year1" name="year1"><br><br>
+                </div>
+                <div>
+                    <label for="degree2">Degree:</label>
+                    <input type="text" id="degree2" name="degree2">
+                    <label for="institution2">Institution:</label>
+                    <input type="text" id="institution2" name="institution2">
+                    <label for="year2">Year:</label>
+                    <input type="text" id="year2" name="year2"><br><br>
+                </div>
+                <div>
+                    <label for="degree3">Degree:</label>
+                    <input type="text" id="degree3" name="degree3">
+                    <label for="institution3">Institution:</label>
+                    <input type="text" id="institution3" name="institution3">
+                    <label for="year3">Year:</label>
+                    <input type="text" id="year3" name="year3"><br><br>
+                </div>
+            </div>
+
+            <h3>Experience</h3>
+            <div id="experiences">
+                <div>
+                    <label for="experience1">Experience:</label><br>
+                    <textarea id="experience1" name="experience1" rows="2" cols="50"></textarea><br><br>
+                </div>
+                <div>
+                    <label for="experience2">Experience:</label><br>
+                    <textarea id="experience2" name="experience2" rows="2" cols="50"></textarea><br><br>
+                </div>
+                <div>
+                    <label for="experience3">Experience:</label><br>
+                    <textarea id="experience3" name="experience3" rows="2" cols="50"></textarea><br><br>
+                </div>
+            </div>
+
+            <h3>Skills</h3>
+            <div id="skills">
+                <div>
+                    <label for="skill1">Skill:</label>
+                    <input type="text" id="skill1" name="skill1"><br><br>
+                </div>
+                <div>
+                    <label for="skill2">Skill:</label>
+                    <input type="text" id="skill2" name="skill2"><br><br>
+                </div>
+                <div>
+                    <label for="skill3">Skill:</label>
+                    <input type="text" id="skill3" name="skill3"><br><br>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="resume" id="resume">
+        <h1 id="displayName"></h1>
+        <img id="displayPhoto" class="photo" src="" alt="Photo">
+        <div class="contact-info">
+            <p id="displayEmail"></p>
+            <p id="displayPhone"></p>
+        </div>
+        <div class="section">
+            <h2 class="section-title">Summary</h2>
+            <p id="displaySummary"></p>
+        </div>
+        <div class="section">
+            <h2 class="section-title">Education</h2>
+            <ul id="displayDegrees"></ul>
+        </div>
+        <div class="section">
+            <h2 class="section-title">Experience</h2>
+            <ul id="displayExperiences"></ul>
+        </div>
+        <div class="section">
+            <h2 class="section-title">Skills</h2>
+            <ul id="displaySkills"></ul>
+        </div>
+    </div>
+</div>
+
+<button id="downloadButton" onclick="downloadResume()">Download Resume as JPEG</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+<script>
+    function previewPhoto() {
+        const photo = document.getElementById('photo').files[0];
+        const reader = new FileReader();
+        reader.onloadend = function () {
+            document.getElementById('displayPhoto').src = reader.result;
+        }
+        if (photo) {
+            reader.readAsDataURL(photo);
+        } else {
+            document.getElementById('displayPhoto').src = "";
+        }
+    }
+
+    document.getElementById('resumeForm').addEventListener('input', updateResume);
+
+    function updateResume() {
+        document.getElementById('displayName').innerText = document.getElementById('name').value;
+        document.getElementById('displayEmail').innerText = document.getElementById('email').value;
+        document.getElementById('displayPhone').innerText = document.getElementById('phone').value;
+        document.getElementById('displaySummary').innerText = document.getElementById('summary').value;
+
+        const degrees = [];
+        for (let i = 1; i <= 3; i++) {
+            const degree = document.getElementById(`degree${i}`).value;
+            const institution = document.getElementById(`institution${i}`).value;
+            const year = document.getElementById(`year${i}`).value;
+            if (degree && institution && year) {
+                degrees.push(`<li>${degree} from ${institution} (${year})</li>`);
+            }
+        }
+        document.getElementById('displayDegrees').innerHTML = degrees.join('');
+
+        const experiences = [];
+        for (let i = 1; i <= 3; i++) {
+            const experience = document.getElementById(`experience${i}`).value;
+            if (experience) {
+                experiences.push(`<li>${experience}</li>`);
+            }
+        }
+        document.getElementById('displayExperiences').innerHTML = experiences.join('');
+
+        const skills = [];
+        for (let i = 1; i <= 3; i++) {
+            const skill = document.getElementById(`skill${i}`).value;
+            if (skill) {
+                skills.push(`<li>${skill}</li>`);
+            }
+        }
+        document.getElementById('displaySkills').innerHTML = skills.join('');
+    }
+
+    function downloadResume() {
+        html2canvas(document.getElementById('resume'), {
+            onrendered: function(canvas) {
+                var link = document.createElement('a');
+                link.href = canvas.toDataURL('image/jpeg');
+                link.download = 'resume.jpg';
+                link.click();
+            }
+        });
+    }
+
+    // Initial call to update resume to ensure it's in sync with form data
+    updateResume();
+</script>
+
+</body>
+</html>
